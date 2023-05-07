@@ -1,0 +1,112 @@
+:root {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: #FF3A3A;
+    font-family: archivo;
+}
+.container-alert{
+    z-index: 1;
+}
+.rock-selection,
+.paper-selection,
+.scissors-selection {
+    z-index: 0;
+}
+
+.background {
+    opacity: 0;
+    z-index: 0;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 880px;
+    height: 900px;
+}
+h1 {
+    position: static;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height: 86px;
+    left: 393px;
+    top: 97px;
+    background: white;
+    border-radius: 25px;
+}
+.center {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.result-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    width: 141px;
+    height: 67px;
+    background: white;
+    border-radius: 25px;
+    font-size: 20px;
+}
+.result-sentence {
+    font-size: 20px;
+}
+.button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-div > button {
+    margin: 0 25px;
+    width: 130px;
+    height: 107px;
+    background: #FFFFFF;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 38px;
+    border: none;
+}
+img {
+    width: auto;
+    height: 80px;
+}
+.reduce-height {
+    width: auto;
+    height: 60px;
+}
+.container-alert {
+    visibility: hidden;
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    width: 300px;
+    height: 140px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 38px;
+}
+.text-alert {
+    font-size: 23px;
+}
+.button-alert {
+    padding: 15px 30px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border: none;
+    background: #FFDD67;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 38px;
+}

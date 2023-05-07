@@ -1,71 +1,161 @@
 let playerScore = 0;
 let computerScore = 0;
+let resultPlayer;
+let resultComputer;
+let playerSelection;
+let computerSelection;
+let displayScore;
+let displaySentence
+let textResult;
 
 function getComputerChoice(array) {
-    //get  random index value
     const randomIndex = Math.floor(Math.random() * array.length);
-    //get random item
     const choice = array[randomIndex];
     return choice;
 }
 const array = ['rock','paper','scissors'];
-let result = getComputerChoice(array);
-console.log(result);
 
-// get value and make it case insensitive 
-let playerSelection = prompt('What is your choice ?', 'Rock, Paper, Scissors').toLowerCase();
-console.log(playerSelection);
-// TODO take the first letter and capitalize it
+resultComputer = console.log(resultComputer);
+resultPlayer = console.log(resultPlayer);
 
-let computerSelection = result
-// Defines the result of the round
 function playRound(playerSelection, computerSelection) {
+    playerSelection = resultPlayer;
+    computerSelection = resultComputer;
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        console.log(`You win, ${playerSelection} beat ${computerSelection}`);
+        displaySentence = (`You win, ${playerSelection} beat ${computerSelection}`);
         playerScore++;
-        console.log(`The score is ${playerScore} for you to ${computerScore} for the computer`);
+        displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        console.log(`You win, ${playerSelection} beat ${computerSelection}`);
+        displaySentence = (`You win, ${playerSelection} beat ${computerSelection}`);
         playerScore++;
-        console.log(`The score is ${playerScore} for you to ${computerScore} for the computer`);
+        displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        console.log(`You win, ${playerSelection} beat ${computerSelection}`);
+        displaySentence = (`You win, ${playerSelection} beat ${computerSelection}`);
         playerScore++;
-        console.log(`The score is ${playerScore} for you to ${computerScore} for the computer`);
+        displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
     } else if (playerSelection === computerSelection) {
-        console.log('Equality !');
-        console.log(`The score is ${playerScore} for you to ${computerScore} for the computer`);
+        displaySentence = ('Equality !');
+        displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
     } else {
-        console.log(`You loose, ${playerSelection} was beaten by ${computerSelection}`);
+        displaySentence = (`You loose, ${playerSelection} was beaten by ${computerSelection}`);
         computerScore++;
-        console.log(`The score is ${playerScore} for you to ${computerScore} for the computer`);
+        displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
+    }
+    return playerScore, computerScore;
+}
+// mb reduce the size of the result text
+// the background amado
+const button = document.querySelectorAll('button');
+function clickRock() {
+    resultPlayer = 'rock';
+    resultComputer = getComputerChoice(array);
+    console.log(resultComputer);
+    playRound(playerSelection, computerSelection);
+    listenerText();
+    listenerDiv();
+    stopGame();
+    return resultPlayer , resultComputer; 
+}
+function clickPaper() {
+    resultPlayer = 'paper';
+    resultComputer = getComputerChoice(array);
+    console.log(resultComputer);
+    playRound(playerSelection, computerSelection);
+    listenerText();
+    listenerDiv();
+    stopGame();
+    return resultPlayer , resultComputer; 
+}
+function clickScissors() {
+    resultPlayer = 'scissors';
+    resultComputer = getComputerChoice(array);
+    console.log(resultComputer);
+    playRound(playerSelection, computerSelection);
+    listenerText();
+    listenerDiv();
+    stopGame();
+    return resultPlayer , resultComputer; 
+}
+button[0].addEventListener('click', clickRock);
+button[1].addEventListener('click', clickPaper);
+button[2].addEventListener('click', clickScissors);
+
+const container = document.querySelector('.center');
+function listenerText() {
+    const p = document.querySelector('.result-score');
+    p.textContent = displayScore;
+    container.appendChild(p);
+}
+function listenerDiv() {
+    const div = document.querySelector('.result-sentence');
+    div.textContent = displaySentence;
+    container.appendChild(div);    
+}
+
+function stopGame() {
+    if(playerScore === 3) {
+        document.querySelector('.rock-selection').disabled = true;
+        document.querySelector('.paper-selection').disabled = true;
+        document.querySelector('.scissors-selection').disabled = true;
+        textResult = 'You Win !'
+        showAlert();
+        resetScore();
+        return textResult;
+    } else if(computerScore === 3) {
+        document.querySelector('.rock-selection').disabled = true;
+        document.querySelector('.paper-selection').disabled = true;
+        document.querySelector('.scissors-selection').disabled = true;
+        textResult = 'You Loose !'
+        showAlert();
+        resetScore();
+        return textResult;
     }
 }
-console.log(playRound(playerSelection, computerSelection));
 
-function game() {
-    let i = 1;
-    if(i < 5) {
-        i++;
-        result = getComputerChoice(array);
-        console.log(result);
-        computerSelection = result
-        playerSelection = prompt('What is your choice ?', 'Rock, Paper, Scissors').toLowerCase();
-        console.log(playerSelection);
-        console.log(playRound(playerSelection, computerSelection));
-    } else if(playerScore >= 3) {
-        console.log(`You have won with ${playerScore} points`)
-    } else if(computerScore >= 3) {
-        console.log(`The computer win with ${computerScore} points`)
-    } 
+const containerAlert = document.querySelector('.container-alert');
+function textAlert() {
+    const textResultAlert = document.querySelector('.text-alert');
+    textResultAlert.textContent = textResult;
+    containerAlert.appendChild(textResultAlert);
 }
-console.log(game());
+const buttonHideAlert = document.querySelector('.button-alert');
+function showAlert() {
+    const alert = document.querySelector('.container-alert');
+    alert.style.visibility='visible';
+    alertBack();
+    const forBack = document.querySelector('.for-back');
+    forBack.style.visibility='visible';
+    textAlert();
+    containerAlert.appendChild(buttonHideAlert);
+}  
+function hideAlert() {
+    const alert = document.querySelector('.container-alert');
+    alert.style.visibility='hidden';
+    const forBack = document.querySelector('.for-back');
+    forBack.style.visibility='hidden';
+}
+function alertBack() {
+    const forBack = document.querySelector('.for-back');
+    forBack.style.position = 'fixed';
+    forBack.style.width = '1200px';
+    forBack.style.height = '950px';
+    forBack.style.top = '0';
+    forBack.style.left = '0';
+    forBack.style.backgroundColor = 'rgba(0, 0, 0, 0.58)';
+}
+buttonHideAlert.addEventListener('click', hideAlert);
 
-
+function resetScore() {
+    playerScore = 0;
+    computerScore = 0;
+    document.querySelector('.rock-selection').disabled = false;
+    document.querySelector('.paper-selection').disabled = false;
+    document.querySelector('.scissors-selection').disabled = false;
+    return playerScore, computerScore;
+}
 //launch Game
 //computer choice random
 //player choice 
-
 //launch first round
 //display the winner
     // rock beat scissors
@@ -73,11 +163,9 @@ console.log(game());
     // paper beat rock
     // if computer choice and player choice is the same = equality
 // take score
-
 // launch second round
     // take score
 // launch third and last round
     // take score
     //display the winner
-
 // propose to reload a game
