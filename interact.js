@@ -24,22 +24,23 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
         displaySentence = (`You win, ${playerSelection} beat ${computerSelection}`);
         playerScore++;
-        displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
+        displayScore = (`${playerScore} - ${computerScore}`);
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         displaySentence = (`You win, ${playerSelection} beat ${computerSelection}`);
         playerScore++;
-        displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
+        displayScore = (`${playerScore} - ${computerScore}`);
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         displaySentence = (`You win, ${playerSelection} beat ${computerSelection}`);
         playerScore++;
-        displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
+        displayScore = (`${playerScore} - ${computerScore}`);
     } else if (playerSelection === computerSelection) {
         displaySentence = ('Equality !');
-        displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
+        displayScore = (`${playerScore} - ${computerScore}`);
     } else {
         displaySentence = (`You loose, ${playerSelection} was beaten by ${computerSelection}`);
         computerScore++;
-        displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
+        displayScore = (`${playerScore} - ${computerScore}`);
+        //displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
     }
     return playerScore, computerScore;
 }
@@ -137,10 +138,12 @@ function hideAlert() {
 function alertBack() {
     const forBack = document.querySelector('.for-back');
     forBack.style.position = 'fixed';
-    forBack.style.width = '1200px';
+    forBack.style.width = '2200px';
     forBack.style.height = '950px';
     forBack.style.top = '0';
     forBack.style.left = '0';
+    forBack.style.right = '0';
+    forBack.style.bottom = '0';
     forBack.style.backgroundColor = 'rgba(0, 0, 0, 0.58)';
 }
 buttonHideAlert.addEventListener('click', hideAlert);
