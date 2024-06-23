@@ -5,7 +5,7 @@ Learned about DOM manipulation and put JS into concrete
 
 [Rock paper scissors](https://haveadream1.github.io/rock-paper-scissors/)
 
-### Credit
+## Credit
 
 [Icons]()
 
