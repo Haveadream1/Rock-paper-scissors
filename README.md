@@ -1,5 +1,11 @@
-# Rock-paper-scissors
-Learned about DOM manipulation and put JS into concrete
+# Rock-paper-scissors game
+
+This project presents a game of rock-paper-scissors with a maximum of 3 points for the winner.  
+The only game mode available is against the computer, his choice is random for each round.  
+
+## Goal
+
+The main purpose of this project is to get familiar with the DOM manipulation in JS.
 
 ## Preview
 
