@@ -18,6 +18,11 @@ The main purpose of this project is to get familiar with the DOM manipulation in
 ## TODO
   Change backgroud-color    DONE  
   Refactor display          DONE  
-  Review name  
+  Review name               DONE
   Display computer choice  
-  Review JS
+  Review JS                 DONE
+  Issue  
+     *Button on top of text alert  
+     *Exceed of 1 round  
+     *Display the computer choice  
+     *Display the player choice  
