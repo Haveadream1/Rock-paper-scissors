@@ -16,8 +16,8 @@ The main purpose of this project is to get familiar with the DOM manipulation in
 [Icons]()
 
 ## TODO
-  Change backgroud-color  
-  Refactor display  
+  Change backgroud-color    DONE  
+  Refactor display          DONE  
   Review name  
   Display computer choice  
   Review JS
