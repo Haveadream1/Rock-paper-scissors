@@ -67,10 +67,10 @@ img {
 }
 
 .alert-section {
-    background-color: rgba(0, 0, 0, 0.562);
     position: absolute;
     height: 100vh;
     width: 100vw;
+    background-color: rgba(0, 0, 0, 0.562);
     display: grid;
     align-items: center;
     justify-items: center;

@@ -1,161 +1,139 @@
+let playerChoice, computerChoice;
 let playerScore = 0;
 let computerScore = 0;
-let resultPlayer;
-let resultComputer;
-let playerSelection;
-let computerSelection;
-let displayScore;
-let displaySentence
-let textResult;
+let roundSentence, roundScore;
 
-function getComputerChoice(array) {
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+
+const againButton = document.querySelector('.again-button');
+const alertSection = document.querySelector('.alert-section');
+const alertContainer = document.querySelector('.alert-container');
+const alertText = document.querySelector('.alert-text');
+
+const array = ['rock','paper','scissors'];
+const getComputerChoice = (array) => {
     const randomIndex = Math.floor(Math.random() * array.length);
     const choice = array[randomIndex];
     return choice;
 }
-const array = ['rock','paper','scissors'];
 
-resultComputer = console.log(resultComputer);
-resultPlayer = console.log(resultPlayer);
+const setDisplay = (playerChoice, computerChoice) => {
+    roundSentence = (`You win, ${playerChoice} beats ${computerChoice}`);
+    playerScore++;
+    roundScore = (`${playerScore} - ${computerScore}`);
+    return playerScore, computerScore;
+}
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = resultPlayer;
-    computerSelection = resultComputer;
-    if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        displaySentence = (`You win, ${playerSelection} beat ${computerSelection}`);
-        playerScore++;
-        displayScore = (`${playerScore} - ${computerScore}`);
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        displaySentence = (`You win, ${playerSelection} beat ${computerSelection}`);
-        playerScore++;
-        displayScore = (`${playerScore} - ${computerScore}`);
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        displaySentence = (`You win, ${playerSelection} beat ${computerSelection}`);
-        playerScore++;
-        displayScore = (`${playerScore} - ${computerScore}`);
-    } else if (playerSelection === computerSelection) {
-        displaySentence = ('Equality !');
-        displayScore = (`${playerScore} - ${computerScore}`);
+const playRound = (playerChoice, computerChoice) => {
+    if (playerChoice === 'rock' && computerChoice === 'scissors') {
+        setDisplay(playerChoice, computerChoice);
+    } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+        setDisplay(playerChoice, computerChoice);
+    } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+        setDisplay(playerChoice, computerChoice);
+    } else if (playerChoice === computerChoice) {
+        roundSentence = ('Equality !');
+        roundScore = (`${playerScore} - ${computerScore}`);
     } else {
-        displaySentence = (`You loose, ${playerSelection} was beaten by ${computerSelection}`);
+        roundSentence = (`You loose, ${playerChoice} was beaten by ${computerChoice}`);
         computerScore++;
-        displayScore = (`${playerScore} - ${computerScore}`);
+        roundScore = (`${playerScore} - ${computerScore}`);
         //displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
     }
     return playerScore, computerScore;
 }
-// mb reduce the size of the result text
-// the background amado
-const button = document.querySelectorAll('button');
-function clickRock() {
-    resultPlayer = 'rock';
-    resultComputer = getComputerChoice(array);
-    console.log(resultComputer);
-    playRound(playerSelection, computerSelection);
-    listenerText();
-    listenerDiv();
-    stopGame();
-    return resultPlayer , resultComputer; 
-}
-function clickPaper() {
-    resultPlayer = 'paper';
-    resultComputer = getComputerChoice(array);
-    console.log(resultComputer);
-    playRound(playerSelection, computerSelection);
-    listenerText();
-    listenerDiv();
-    stopGame();
-    return resultPlayer , resultComputer; 
-}
-function clickScissors() {
-    resultPlayer = 'scissors';
-    resultComputer = getComputerChoice(array);
-    console.log(resultComputer);
-    playRound(playerSelection, computerSelection);
-    listenerText();
-    listenerDiv();
-    stopGame();
-    return resultPlayer , resultComputer; 
-}
-button[0].addEventListener('click', clickRock);
-button[1].addEventListener('click', clickPaper);
-button[2].addEventListener('click', clickScissors);
 
-const container = document.querySelector('.center');
-function listenerText() {
-    const p = document.querySelector('.result-score');
-    p.textContent = displayScore;
-    container.appendChild(p);
-}
-function listenerDiv() {
-    const div = document.querySelector('.result-sentence');
-    div.textContent = displaySentence;
-    container.appendChild(div);    
+const header = document.querySelector('header');
+const displayScore = () => {
+    const score = document.querySelector('.score');
+    score.textContent = roundScore;
+    header.appendChild(score);
 }
 
-function stopGame() {
+// function listenerDiv() {
+//     const div = document.querySelector('.result-sentence');
+//     div.textContent = displaySentence;
+//     container.appendChild(div);    
+// }
+
+
+const stopGame = () => {
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+
     if(playerScore === 3) {
-        document.querySelector('.rock-selection').disabled = true;
-        document.querySelector('.paper-selection').disabled = true;
-        document.querySelector('.scissors-selection').disabled = true;
         textResult = 'You Win !'
-        showAlert();
+        displayAlert(textResult)
         resetScore();
-        return textResult;
     } else if(computerScore === 3) {
-        document.querySelector('.rock-selection').disabled = true;
-        document.querySelector('.paper-selection').disabled = true;
-        document.querySelector('.scissors-selection').disabled = true;
         textResult = 'You Loose !'
-        showAlert();
+        displayAlert(textResult)
         resetScore();
-        return textResult;
     }
 }
 
-const containerAlert = document.querySelector('.container-alert');
-function textAlert() {
-    const textResultAlert = document.querySelector('.text-alert');
-    textResultAlert.textContent = textResult;
-    containerAlert.appendChild(textResultAlert);
+againButton.addEventListener('click', () => {
+    alertSection.style.visibility= 'hidden';
+});
+
+const displayAlert = () => {
+    alertSection.style.visibility= 'visible';
+
+    alertText.textContent = textResult;
+    alertContainer.appendChild(alertText);
+
+    // let alertButton = document.createElement('button');
+    // alertButton.classList('again-button');
+    // alertContainer.appendChild(alertButton);
+
+    // Button is on top of the text
+
 }
-const buttonHideAlert = document.querySelector('.button-alert');
-function showAlert() {
-    const alert = document.querySelector('.container-alert');
-    alert.style.visibility='visible';
-    alertBack();
-    const forBack = document.querySelector('.for-back');
-    forBack.style.visibility='visible';
-    textAlert();
-    containerAlert.appendChild(buttonHideAlert);
-}  
-function hideAlert() {
-    const alert = document.querySelector('.container-alert');
-    alert.style.visibility='hidden';
-    const forBack = document.querySelector('.for-back');
-    forBack.style.visibility='hidden';
-}
-function alertBack() {
-    const forBack = document.querySelector('.for-back');
-    forBack.style.position = 'fixed';
-    forBack.style.width = '2200px';
-    forBack.style.height = '950px';
-    forBack.style.top = '0';
-    forBack.style.left = '0';
-    forBack.style.right = '0';
-    forBack.style.bottom = '0';
-    forBack.style.backgroundColor = 'rgba(0, 0, 0, 0.58)';
-}
-buttonHideAlert.addEventListener('click', hideAlert);
 
 function resetScore() {
     playerScore = 0;
     computerScore = 0;
-    document.querySelector('.rock-selection').disabled = false;
-    document.querySelector('.paper-selection').disabled = false;
-    document.querySelector('.scissors-selection').disabled = false;
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
     return playerScore, computerScore;
 }
+
+const launchGame = (playerChoice, computerChoice) => {
+    if ((playerScore != 3) && (computerScore != 3)) { // 1 round de trop
+        playRound(playerChoice, computerChoice);
+        console.log(playerChoice,computerChoice);
+        displayScore();
+    } else {
+        stopGame();
+    }
+    return playerChoice , computerChoice; 
+}
+
+rock.addEventListener("click", () => {
+    playerChoice = 'rock';
+    computerChoice = getComputerChoice(array);
+
+    launchGame(playerChoice, computerChoice);
+})
+
+paper.addEventListener("click", () => {
+    playerChoice = 'paper';
+    computerChoice = getComputerChoice(array);
+
+    launchGame(playerChoice, computerChoice);
+})
+
+scissors.addEventListener("click", () => {
+    playerChoice = 'scissors';
+    computerChoice = getComputerChoice(array);
+
+    launchGame(playerChoice, computerChoice);
+})
+
 //launch Game
 //computer choice random
 //player choice 
