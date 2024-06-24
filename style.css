@@ -36,10 +36,36 @@ header > .score {
     height: 40px;
 }
 
-
 main {
+    width: 1000px;
     display: grid;
+    grid-template-columns: 1fr 1fr;
 }
+.player-section,
+.computer-section {
+    padding: 15px;
+    display: grid;
+    justify-items: center;
+}
+main > section > button,
+main > section >.choice-section > button {
+    margin: 15px;
+    width: 130px;
+    height: 100px;
+    background: white;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    border: none;
+}
+
+.choice-section {
+    display: flex;
+}
+img {
+    width: auto;
+    height: 50px;
+}
+
 
 
 
@@ -121,8 +147,15 @@ img {
     width: auto;
     height: 60px;
 }
-.container-alert {
+*/
+.alert-section {
+    background-color: black;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
     visibility: hidden;
+    /* visibility: hidden;
     position: absolute;
     top: 42%;
     left: 50%;
@@ -132,20 +165,16 @@ img {
     align-items: center;
     justify-content: center;
     background-color: #FFFFFF;
-    width: 300px;
-    height: 140px;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 38px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
 .text-alert {
     font-size: 23px;
 }
-.button-alert {
-    padding: 15px 30px;
-    margin-bottom: 15px;
-    font-size: 18px;
+.alert-section > button {
+    width: 100px;
+    height: 50px;
     border: none;
     background: var(--yellow);
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 38px;
+    border-radius: 30px;
 }
