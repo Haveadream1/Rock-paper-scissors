@@ -12,24 +12,52 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <img class="background" src="pictures/Vector 1.png" alt="">
-    <h1 class="h1">Rock Paper Scissors</h1>
+    <header> 
+        <h1>Rock Paper Scissors</h1>
+        <p class="score">0 - 0</p>
+    </header>
+
+    <main>
+        <section>
+            <p>Player</p>
+
+            <section class="button-section">
+                <button class="rock"><img class="reduce-height" src="pictures/🦆 emoji _fisted hand sign_.jpg" alt="Fist emoji"></button>
+                <button class="paper"><img src="pictures/🦆 emoji _raised hand with fingers splayed_.jpg" alt="Palm emoji"></button>
+                <button class="scissors"><img src="pictures/🦆 emoji _victory hand_.jpg" alt="Peace emoji"></button>
+            </section>
+
+            <p class="info">Choose a hand</p>
+        </section>
+
+        <section>
+            <p>Computer</p>
+            <button disabled>?</button>
+        </section>
+        
+        
     
-    <div class="center">
-        <p class="result-score">0-0</p>
-        <div class="result-sentence"></div>
-    </div>
+        <!-- 
+        <div class="center">
+            <p class="result-score">0-0</p>
+            <div class="result-sentence"></div>
+        </div>
+    
+        <div class="button-div">
+            <button class="rock-selection"><img class="reduce-height" src="pictures/🦆 emoji _fisted hand sign_.jpg" alt=""></button>
+            <button class="paper-selection"><img src="pictures/🦆 emoji _raised hand with fingers splayed_.jpg" alt=""></button>
+            <button class="scissors-selection"><img src="pictures/🦆 emoji _victory hand_.jpg" alt=""></button>
+        </div>
+    
+        <div class="container-alert">
+            <p class="text-alert"></p>
+            <button class="button-alert">Play Again ?</button>
+        </div>
+        <div class="for-back"></div> -->
+    </main>
 
-    <div class="button-div">
-        <button class="rock-selection"><img class="reduce-height" src="pictures/🦆 emoji _fisted hand sign_.jpg" alt=""></button>
-        <button class="paper-selection"><img src="pictures/🦆 emoji _raised hand with fingers splayed_.jpg" alt=""></button>
-        <button class="scissors-selection"><img src="pictures/🦆 emoji _victory hand_.jpg" alt=""></button>
-    </div>
-
-    <div class="container-alert">
-        <p class="text-alert"></p>
-        <button class="button-alert">Play Again ?</button>
-    </div>
-    <div class="for-back"></div>
+    <footer>
+        <p class="result">You loose</p>
+    </footer>
 </body>
 </html>
