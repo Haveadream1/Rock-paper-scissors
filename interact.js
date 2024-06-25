@@ -12,6 +12,12 @@ const alertSection = document.querySelector('.alert-section');
 const alertContainer = document.querySelector('.alert-container');
 const alertText = document.querySelector('.alert-text');
 
+const header = document.querySelector('header');
+const score = document.querySelector('.score');
+
+const footer = document.querySelector('footer');
+const result = document.querySelector('.result');
+
 const array = ['rock','paper','scissors'];
 const getComputerChoice = (array) => {
     const randomIndex = Math.floor(Math.random() * array.length);
@@ -40,24 +46,17 @@ const playRound = (playerChoice, computerChoice) => {
         roundSentence = (`You loose, ${playerChoice} was beaten by ${computerChoice}`);
         computerScore++;
         roundScore = (`${playerScore} - ${computerScore}`);
-        //displayScore = (`The score is ${playerScore} for you to ${computerScore} for the computer`);
     }
     return playerScore, computerScore;
 }
 
-const header = document.querySelector('header');
-const displayScore = () => {
-    const score = document.querySelector('.score');
+const displayInfoRound = () => {
     score.textContent = roundScore;
     header.appendChild(score);
+
+    result.textContent = roundSentence;
+    footer.appendChild(result);
 }
-
-// function listenerDiv() {
-//     const div = document.querySelector('.result-sentence');
-//     div.textContent = displaySentence;
-//     container.appendChild(div);    
-// }
-
 
 const stopGame = () => {
     rock.disabled = true;
@@ -84,13 +83,6 @@ const displayAlert = () => {
 
     alertText.textContent = textResult;
     alertContainer.appendChild(alertText);
-
-    // let alertButton = document.createElement('button');
-    // alertButton.classList('again-button');
-    // alertContainer.appendChild(alertButton);
-
-    // Button is on top of the text
-
 }
 
 function resetScore() {
@@ -103,14 +95,14 @@ function resetScore() {
 }
 
 const launchGame = (playerChoice, computerChoice) => {
-    if ((playerScore != 3) && (computerScore != 3)) { // 1 round de trop
+    if ((playerScore === 3) || (computerScore === 3)) { // 1 click de trop
+        stopGame();
+    } else {
         playRound(playerChoice, computerChoice);
         console.log(playerChoice,computerChoice);
-        displayScore();
-    } else {
-        stopGame();
+        displayInfoRound();
     }
-    return playerChoice , computerChoice; 
+    return playerChoice , computerChoice;
 }
 
 rock.addEventListener("click", () => {
