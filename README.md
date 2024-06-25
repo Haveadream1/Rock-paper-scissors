@@ -23,6 +23,6 @@ The main purpose of this project is to get familiar with the DOM manipulation in
   Review JS                 DONE
   Issue  
      *Button on top of text alert    DONE
-     *Exceed of 1 round  
+     *Exceed of 1 click  
      *Display the computer choice  
      *Display the player choice  
