@@ -1,6 +1,6 @@
-let playerChoice, computerChoice;
 let playerScore = 0;
 let computerScore = 0;
+let playerChoice, computerChoice;
 let roundSentence, roundScore;
 
 const rock = document.querySelector(".rock");
@@ -50,6 +50,31 @@ const playRound = (playerChoice, computerChoice) => {
     return playerScore, computerScore;
 }
 
+const choiceSection = document.querySelector('.choice-section');
+const computerChoiceImage = document.querySelector('.computer-choice-img');
+const playerChoiceImage = document.querySelector('.player-choice-img');
+
+const displayChoice = () => {
+    // choiceSection.style.visibility= 'hidden';
+    // playerChoiceImage.style.visibility= 'visible';
+
+    // if (playerChoice === 'rock') {
+    //     playerChoiceImage.innerHTML = '<img src="pictures/🦆 emoji _fisted hand sign_.jpg" alt="Fist emoji">';
+    // } else if (playerChoice === 'paper') {
+    //     playerChoiceImage.innerHTML = '<img src="pictures/🦆 emoji _raised hand with fingers splayed_.jpg" alt="Palm emoji">';
+    // } else {
+    //     playerChoiceImage.innerHTML = '<img src="pictures/🦆 emoji _victory hand_.jpg" alt="Peace emoji">';
+    // }
+
+    if (computerChoice === 'rock') {
+        computerChoiceImage.innerHTML = '<img src="pictures/🦆 emoji _fisted hand sign_.jpg" alt="Fist emoji">';
+    } else if (computerChoice === 'paper') {
+        computerChoiceImage.innerHTML = '<img src="pictures/🦆 emoji _raised hand with fingers splayed_.jpg" alt="Palm emoji">';
+    } else {
+        computerChoiceImage.innerHTML = '<img src="pictures/🦆 emoji _victory hand_.jpg" alt="Peace emoji">';
+    }
+}
+
 const displayInfoRound = () => {
     score.textContent = roundScore;
     header.appendChild(score);
@@ -58,32 +83,16 @@ const displayInfoRound = () => {
     footer.appendChild(result);
 }
 
-const stopGame = () => {
-    rock.disabled = true;
-    paper.disabled = true;
-    scissors.disabled = true;
-
-    if(playerScore === 3) {
-        textResult = 'You Win !'
-        displayAlert(textResult)
-        resetScore();
-    } else if(computerScore === 3) {
-        textResult = 'You Loose !'
-        displayAlert(textResult)
-        resetScore();
-    }
-}
-
-againButton.addEventListener('click', () => {
-    alertSection.style.visibility= 'hidden';
-});
-
 const displayAlert = () => {
     alertSection.style.visibility= 'visible';
 
     alertText.textContent = textResult;
     alertContainer.appendChild(alertText);
 }
+
+againButton.addEventListener('click', () => {
+    alertSection.style.visibility = 'hidden';
+});
 
 function resetScore() {
     playerScore = 0;
@@ -94,12 +103,31 @@ function resetScore() {
     return playerScore, computerScore;
 }
 
+const stopGame = () => {
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+    computerChoiceImage.textContent = '?';
+
+    if(playerScore === 3) {
+        textResult = 'You Win !';
+        displayAlert(textResult);
+    } else if(computerScore === 3) {
+        textResult = 'You Loose !';
+        displayAlert(textResult);
+    }
+    resetScore();
+}
+
 const launchGame = (playerChoice, computerChoice) => {
     if ((playerScore === 3) || (computerScore === 3)) { // 1 click de trop
         stopGame();
     } else {
         playRound(playerChoice, computerChoice);
         console.log(playerChoice,computerChoice);
+
+
+        displayChoice();
         displayInfoRound();
     }
     return playerChoice , computerChoice;
