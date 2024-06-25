@@ -13,16 +13,16 @@ The main purpose of this project is to get familiar with the DOM manipulation in
 
 ## Credit
 
-[Icons]()
+[Icons](https://www.figma.com/design/R2uuGTAjvoJnjHJ1y8CP1p/Free-Universal-Icons-(Community)?t=f6Jus0aRotVQVEai-0)
 
 ## TODO
-  Change backgroud-color    DONE  
-  Refactor display          DONE   
-  Review name               DONE  
-  Display computer choice   DONE  
-  Review JS                 DONE  
+  Change backgroud-color     DONE  
+  Refactor display           DONE   
+  Review name                DONE  
+  Display computer choice    DONE   
+  Review JS                  DONE    
   Issue  
-     *Button on top of text alert    DONE  
-     *Exceed of 1 click  
-     *Display the computer choice    DONE  
-     *Display the player choice      DONE
+      *Button on top of text alert    DONE   
+      *Exceed of 1 click  
+      *Display the computer choice    DONE  
+      *Display the player choice      DONE
