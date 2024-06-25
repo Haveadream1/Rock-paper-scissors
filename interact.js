@@ -18,6 +18,8 @@ const score = document.querySelector('.score');
 const footer = document.querySelector('footer');
 const result = document.querySelector('.result');
 
+const computerChoiceImage = document.querySelector('.computer-choice-img');
+
 const array = ['rock','paper','scissors'];
 const getComputerChoice = (array) => {
     const randomIndex = Math.floor(Math.random() * array.length);
@@ -50,22 +52,7 @@ const playRound = (playerChoice, computerChoice) => {
     return playerScore, computerScore;
 }
 
-const choiceSection = document.querySelector('.choice-section');
-const computerChoiceImage = document.querySelector('.computer-choice-img');
-const playerChoiceImage = document.querySelector('.player-choice-img');
-
 const displayChoice = () => {
-    // choiceSection.style.visibility= 'hidden';
-    // playerChoiceImage.style.visibility= 'visible';
-
-    // if (playerChoice === 'rock') {
-    //     playerChoiceImage.innerHTML = '<img src="pictures/🦆 emoji _fisted hand sign_.jpg" alt="Fist emoji">';
-    // } else if (playerChoice === 'paper') {
-    //     playerChoiceImage.innerHTML = '<img src="pictures/🦆 emoji _raised hand with fingers splayed_.jpg" alt="Palm emoji">';
-    // } else {
-    //     playerChoiceImage.innerHTML = '<img src="pictures/🦆 emoji _victory hand_.jpg" alt="Peace emoji">';
-    // }
-
     if (computerChoice === 'rock') {
         computerChoiceImage.innerHTML = '<img src="pictures/🦆 emoji _fisted hand sign_.jpg" alt="Fist emoji">';
     } else if (computerChoice === 'paper') {
@@ -107,6 +94,11 @@ const stopGame = () => {
     rock.disabled = true;
     paper.disabled = true;
     scissors.disabled = true;
+
+    rock.classList.remove('choice');
+    paper.classList.remove('choice');
+    scissors.classList.remove('choice');
+
     computerChoiceImage.textContent = '?';
 
     if(playerScore === 3) {
@@ -120,12 +112,12 @@ const stopGame = () => {
 }
 
 const launchGame = (playerChoice, computerChoice) => {
+
     if ((playerScore === 3) || (computerScore === 3)) { // 1 click de trop
         stopGame();
     } else {
         playRound(playerChoice, computerChoice);
         console.log(playerChoice,computerChoice);
-
 
         displayChoice();
         displayInfoRound();
@@ -137,6 +129,10 @@ rock.addEventListener("click", () => {
     playerChoice = 'rock';
     computerChoice = getComputerChoice(array);
 
+    rock.classList.add('choice');
+    paper.classList.remove('choice');
+    scissors.classList.remove('choice');
+
     launchGame(playerChoice, computerChoice);
 })
 
@@ -144,12 +140,20 @@ paper.addEventListener("click", () => {
     playerChoice = 'paper';
     computerChoice = getComputerChoice(array);
 
+    rock.classList.remove('choice');
+    paper.classList.add('choice');
+    scissors.classList.remove('choice');
+
     launchGame(playerChoice, computerChoice);
 })
 
 scissors.addEventListener("click", () => {
     playerChoice = 'scissors';
     computerChoice = getComputerChoice(array);
+
+    rock.classList.remove('choice');
+    paper.classList.remove('choice');
+    scissors.classList.add('choice');
 
     launchGame(playerChoice, computerChoice);
 })

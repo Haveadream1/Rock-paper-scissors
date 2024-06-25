@@ -1,6 +1,7 @@
 :root {
     --red: #FF3A3A;
     --yellow: #FFDD67;
+    --yellow-border: #ebeb3c;
     font-family: archivo;
 }
 
@@ -60,6 +61,9 @@ main > section >.choice-section > button {
 
 .choice-section {
     display: flex;
+}
+.choice-section > .choice {
+    border: solid var(--yellow-border);
 }
 img {
     width: auto;
