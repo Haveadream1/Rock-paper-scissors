@@ -22,7 +22,7 @@ The main purpose of this project is to get familiar with the DOM manipulation in
   Display computer choice  
   Review JS                 DONE
   Issue  
-     *Button on top of text alert  
+     *Button on top of text alert    DONE
      *Exceed of 1 round  
      *Display the computer choice  
      *Display the player choice  
