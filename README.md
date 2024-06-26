@@ -20,7 +20,8 @@ The main purpose of this project is to get familiar with the DOM manipulation in
   Refactor display           DONE   
   Review name                DONE  
   Display computer choice    DONE   
-  Review JS                  DONE    
+  Review JS                  DONE   
+  Improve style              DONE  
   Issue  
       *Button on top of text alert    DONE   
       *Exceed of 1 click  
