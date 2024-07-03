@@ -16,13 +16,5 @@ The main purpose of this project is to get familiar with the DOM manipulation in
 [Icons]()
 
 ## TODO
-  Change backgroud-color    DONE  
-  Refactor display          DONE   
-  Review name               DONE  
-  Display computer choice   DONE  
-  Review JS                 DONE  
-  Issue  
-     *Button on top of text alert    DONE  
-     *Exceed of 1 click  
-     *Display the computer choice    DONE  
-     *Display the player choice      DONE
+  Add credit icon  
+  Review background-color
