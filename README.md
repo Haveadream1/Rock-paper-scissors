@@ -13,7 +13,7 @@ The main purpose of this project is to get familiar with the DOM manipulation in
 
 ## Credit
 
-[Icons]()
+[Icons](https://www.figma.com/design/R2uuGTAjvoJnjHJ1y8CP1p/Free-Universal-Icons-(Community)?t=f6Jus0aRotVQVEai-0)
 
 ## TODO
   Add credit icon  
