@@ -28,7 +28,7 @@ const getComputerChoice = (array) => {
 }
 
 const setDisplay = (playerChoice, computerChoice) => {
-    roundSentence = (`You win, ${playerChoice} beats ${computerChoice}`);
+    roundSentence = `You won, ${playerChoice} beat ${computerChoice}`;
     playerScore++;
     roundScore = (`${playerScore} - ${computerScore}`);
     return playerScore, computerScore;
@@ -45,7 +45,7 @@ const playRound = (playerChoice, computerChoice) => {
         roundSentence = ('Equality !');
         roundScore = (`${playerScore} - ${computerScore}`);
     } else {
-        roundSentence = (`You loose, ${playerChoice} was beaten by ${computerChoice}`);
+        roundSentence = (`You lost, the ${playerChoice} beat the ${computerChoice}`);
         computerScore++;
         roundScore = (`${playerScore} - ${computerScore}`);
     }
@@ -113,7 +113,7 @@ const stopGame = () => {
 
 const launchGame = (playerChoice, computerChoice) => {
 
-    if ((playerScore === 3) || (computerScore === 3)) { // 1 click de trop
+    if ((playerScore === 3) || (computerScore === 3)) {
         stopGame();
     } else {
         playRound(playerChoice, computerChoice);
